@@ -61,6 +61,12 @@
             <!-- Function file for event-based activation -->
             <FunctionFile resid="Commands.Url"/>
 
+            <!-- Event-based activation for smart alerts -->
+            <LaunchEvents>
+              <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onAppointmentComposeActivate"/>
+              <LaunchEvent Type="OnAppointmentSend" FunctionName="onAppointmentSend" SendMode="SoftBlock"/>
+            </LaunchEvents>
+
             <!-- Extension point for appointment organizer -->
             <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
               <OfficeTab id="TabDefault">
