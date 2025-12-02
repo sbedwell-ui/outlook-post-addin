@@ -56,18 +56,29 @@
 
       <Hosts>
         <Host xsi:type="MailHost">
+
+          <!-- Runtime for event-based activation -->
+          <Runtimes>
+            <Runtime resid="Autorun">
+              <Override type="javascript" resid="Commands.Url"/>
+            </Runtime>
+          </Runtimes>
+
           <DesktopFormFactor>
 
-            <!-- Function file for event-based activation -->
+            <!-- Function file for commands -->
             <FunctionFile resid="Commands.Url"/>
 
-            <!-- Event-based activation for smart alerts -->
-            <LaunchEvents>
-              <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onAppointmentComposeActivate"/>
-              <LaunchEvent Type="OnAppointmentSend" FunctionName="onAppointmentSend" SendMode="SoftBlock"/>
-            </LaunchEvents>
+            <!-- Event-based activation extension point -->
+            <ExtensionPoint xsi:type="LaunchEvent">
+              <LaunchEvents>
+                <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onAppointmentComposeActivate"/>
+                <LaunchEvent Type="OnAppointmentSend" FunctionName="onAppointmentSend" SendMode="SoftBlock"/>
+              </LaunchEvents>
+              <SourceLocation resid="Commands.Url"/>
+            </ExtensionPoint>
 
-            <!-- Extension point for appointment organizer -->
+            <!-- Extension point for appointment organizer ribbon -->
             <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
               <OfficeTab id="TabDefault">
                 <Group id="PostGroupV2">
@@ -104,6 +115,7 @@
         <bt:Urls>
           <bt:Url id="Commands.Url" DefaultValue="https://sbedwell-ui.github.io/outlook-post-addin/commands.html"/>
           <bt:Url id="Taskpane.Url" DefaultValue="https://sbedwell-ui.github.io/outlook-post-addin/taskpane.html"/>
+          <bt:Url id="Autorun" DefaultValue="https://sbedwell-ui.github.io/outlook-post-addin/commands.html"/>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="POST v2"/>
