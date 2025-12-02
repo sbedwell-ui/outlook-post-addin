@@ -85,15 +85,6 @@
               </OfficeTab>
             </ExtensionPoint>
 
-            <!-- Event-based activation extension point -->
-            <ExtensionPoint xsi:type="LaunchEvent">
-              <LaunchEvents>
-                <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onAppointmentComposeActivate"/>
-                <LaunchEvent Type="OnAppointmentSend" FunctionName="onAppointmentSend" SendMode="SoftBlock"/>
-              </LaunchEvents>
-              <SourceLocation resid="Commands.Url"/>
-            </ExtensionPoint>
-
           </DesktopFormFactor>
         </Host>
       </Hosts>
