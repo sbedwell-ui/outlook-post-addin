@@ -6,11 +6,11 @@
   xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
   xsi:type="MailApp">
 
-  <Id>a1b2c3d4-e5f6-7890-abcd-ef1234567890</Id>
-  <Version>1.0.0.0</Version>
-  <ProviderName>POST Meeting Add-in</ProviderName>
+  <Id>b2c3d4e5-f6a7-8901-bcde-f23456789012</Id>
+  <Version>2.0.0.0</Version>
+  <ProviderName>POST Meeting Add-in v2</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="POST Meeting Framework"/>
+  <DisplayName DefaultValue="POST Meeting v2"/>
   <Description DefaultValue="Helps enforce meeting best practices using the POST framework (Purpose, Outcomes, Structure, Timing)"/>
   <IconUrl DefaultValue="https://sbedwell-ui.github.io/outlook-post-addin/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://sbedwell-ui.github.io/outlook-post-addin/assets/icon-128.png"/>
@@ -70,9 +70,9 @@
             <!-- Extension point for appointment organizer -->
             <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
               <OfficeTab id="TabDefault">
-                <Group id="PostGroup">
+                <Group id="PostGroupV2">
                   <Label resid="GroupLabel"/>
-                  <Control xsi:type="Button" id="TaskpaneButton">
+                  <Control xsi:type="Button" id="TaskpaneButtonV2">
                     <Label resid="TaskpaneButton.Label"/>
                     <Supertip>
                       <Title resid="TaskpaneButton.Label"/>
@@ -106,8 +106,8 @@
           <bt:Url id="Taskpane.Url" DefaultValue="https://sbedwell-ui.github.io/outlook-post-addin/taskpane.html"/>
         </bt:Urls>
         <bt:ShortStrings>
-          <bt:String id="GroupLabel" DefaultValue="POST Framework"/>
-          <bt:String id="TaskpaneButton.Label" DefaultValue="POST Meeting"/>
+          <bt:String id="GroupLabel" DefaultValue="POST v2"/>
+          <bt:String id="TaskpaneButton.Label" DefaultValue="POST Meeting v2"/>
         </bt:ShortStrings>
         <bt:LongStrings>
           <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Open the POST framework task pane to set Purpose, Outcomes, Structure, and Timing for this meeting"/>
