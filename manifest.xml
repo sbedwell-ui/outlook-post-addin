@@ -56,10 +56,24 @@
 
       <Hosts>
         <Host xsi:type="MailHost">
+          <Runtimes>
+            <Runtime resid="Commands.Url">
+              <Override type="javascript" resid="Commands.Js"/>
+            </Runtime>
+          </Runtimes>
           <DesktopFormFactor>
 
             <!-- Function file for commands -->
             <FunctionFile resid="Commands.Url"/>
+
+            <!-- Extension point for event-based activation (LaunchEvents) -->
+            <ExtensionPoint xsi:type="LaunchEvent">
+              <LaunchEvents>
+                <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onAppointmentComposeActivate"/>
+                <LaunchEvent Type="OnAppointmentSend" FunctionName="onAppointmentSend" SendMode="SoftBlock"/>
+              </LaunchEvents>
+              <SourceLocation resid="Commands.Url"/>
+            </ExtensionPoint>
 
             <!-- Extension point for appointment organizer ribbon -->
             <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
@@ -97,6 +111,7 @@
         </bt:Images>
         <bt:Urls>
           <bt:Url id="Commands.Url" DefaultValue="https://sbedwell-ui.github.io/outlook-post-addin/commands.html"/>
+          <bt:Url id="Commands.Js" DefaultValue="https://sbedwell-ui.github.io/outlook-post-addin/commands.js"/>
           <bt:Url id="Taskpane.Url" DefaultValue="https://sbedwell-ui.github.io/outlook-post-addin/taskpane.html"/>
         </bt:Urls>
         <bt:ShortStrings>
